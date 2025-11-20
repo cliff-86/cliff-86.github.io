@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Media Directors & Audit Fees</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 12px;
+            overflow-x: auto;
+        }
+        a {
+            color: #0645AD;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Media Directors & Audit Fees</h1>
+<p><em>Project Overview, Structure, and Findings</em></p>
+
+<p>This project investigates whether the presence of media-linked directors influences firms' audit fees, audit effort, and accounting quality. The core idea is that media expertise on the board may change auditors’ perceptions of firm transparency, governance quality, and reputational risk.</p>
+
+<hr>
+
+<h2>1. Research Questions</h2>
+
+<h3>Core Question</h3>
+<ul>
+    <li>Do firms with media-linked directors pay different audit fees?</li>
+</ul>
+
+<h3>Mechanism / Channel Questions</h3>
+<ul>
+    <li>Does media expertise strengthen governance and transparency (→ lower audit fees)?</li>
+    <li>Or does higher public visibility raise litigation/regulatory risk (→ higher audit fees)?</li>
+</ul>
+
+<h3>Additional Outcome Questions</h3>
+<ul>
+    <li>Does the presence of media directors improve accounting quality?</li>
+    <li>Does it reduce internal control weaknesses?</li>
+    <li>Does it affect audit report lag or audit effort?</li>
+</ul>
+
+<hr>
+
+<h2>2. Conceptual Framework</h2>
+
+<h3>Media Director Definition</h3>
+<p>Media directors are board members with:</p>
+<ul>
+    <li>journalism or broadcasting careers,</li>
+    <li>senior positions in media corporations,</li>
+    <li>public-facing roles or high visibility,</li>
+    <li>communication or public-relations expertise.</li>
+</ul>
+
+<h3>Hypotheses</h3>
+
+<h4>H1: Governance & Transparency Channel</h4>
+<ul>
+    <li>Better oversight and information flow → reduced information risk → <strong>lower audit fees</strong>.</li>
+</ul>
+
+<h4>H2: Visibility & Reputational Risk Channel</h4>
+<ul>
+    <li>Higher public/media attention → auditors worry about litigation → <strong>higher audit fees</strong>.</li>
+</ul>
+
+<hr>
+
+<h2>3. Data Structure</h2>
+
+<h3>Data Sources</h3>
+<ul>
+    <li>BoardEx director biographies</li>
+    <li>Audit fees (Audit Analytics / Compustat)</li>
+    <li>Financial statements (Compustat)</li>
+    <li>CUSIP/GVKEY linking files</li>
+</ul>
+
+<h3>Core Variables</h3>
+<ul>
+    <li><code>media_dir</code> – indicator for presence of media-linked director</li>
+    <li><code>ln_auditfees</code> – log of audit fees</li>
+    <li><code>big4</code> – auditor indicator</li>
+    <li>Firm controls (size, leverage, ROA, segments, etc.)</li>
+    <li>Governance controls (independence, gender diversity, institutional ownership)</li>
+</ul>
+
+<h3>Optional Composite</h3>
+<ul>
+    <li>PCA1 governance index</li>
+</ul>
+
+<hr>
+
+<h2>4. Empirical Strategy</h2>
+
+<h3>Baseline Model</h3>
+<pre>
+ln(AuditFees) = β * MediaDirector + Controls + Firm FE + Year FE + ε
+</pre>
+
+<h3>Identification</h3>
+<ul>
+    <li>Firm fixed effects</li>
+    <li>Year fixed effects</li>
+    <li>Industry × year fixed effects</li>
+    <li>PSM matching</li>
+    <li>Appointment event design (future extension)</li>
+</ul>
+
+<h3>Robustness Tests</h3>
+<ul>
+    <li>Audit vs. non-audit fee decomposition</li>
+    <li>Alternative media director definitions</li>
+    <li>Excluding media-industry firms</li>
+    <li>Governance subsamples</li>
+    <li>PCA1 mediation tests</li>
+</ul>
+
+<hr>
+
+<h2>5. Key Empirical Findings</h2>
+
+<h3>✔ 1. Media-linked directors are associated with <strong>lower audit fees</strong>.</h3>
+<p>Supports the governance-transparency channel.</p>
+
+<h3>✔ 2. Effect is stronger in firms with <strong>weak baseline governance</strong>.</h3>
+<p>Media directors appear to substitute for weak oversight.</p>
+
+<h3>✔ 3. Media directors correlate with governance improvements.</h3>
+<ul>
+    <li>↓ transient institutional ownership</li>
+    <li>↑ independent female directors</li>
+    <li>↑ managerial efficiency</li>
+</ul>
+
+<h3>✔ 4. No evidence of increased perceived audit risk.</h3>
+<p>No fee premium, no increase in audit effort.</p>
+
+<h3>✔ 5. Governance mediation (PCA1) supports mechanism.</h3>
+
+<h3>✔ 6. Accounting-quality patterns are directionally consistent.</h3>
+<ul>
+    <li>No deterioration in accrual quality</li>
+    <li>Some reduction in internal control weaknesses</li>
+</ul>
+
+<hr>
+
+<h2>6. Extensions</h2>
+<ul>
+    <li>Accruals, restatements, ICWs</li>
+    <li>Audit report lag, auditor switching</li>
+    <li>Event study on director appointments</li>
+</ul>
+
+<hr>
+
+<h2>7. Project Folder Structure</h2>
+
+<pre>
+project_root/
+│
+├── data/
+│   ├── raw/
+│   ├── cleaned/
+│   └── documentation/
+│
+├── code/
+│   ├── cleaning/
+│   ├── variable_construction/
+│   ├── merge/
+│   ├── analysis/
+│   └── robustness/
+│
+├── results/
+│   ├── tables/
+│   ├── figures/
+│   └── logs/
+│
+└── manuscript/
+    ├── draft/
+    ├── latex/
+    └── notes/
+</pre>
+
+<hr>
+
+<p><a href="index.html">← Back to Home</a></p>
+
+</body>
+</html>
