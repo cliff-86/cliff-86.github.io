@@ -1,12 +1,257 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Cliff Li — Homepage</title>
+    <meta charset="UTF-8">
+    <title>Cliff Li – Homepage</title>
+    <style>
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 15px 60px 15px;
+            background-color: #ffffff;
+        }
+
+        header {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* layout */
+        .layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-gap: 20px;
+        }
+
+        @media (max-width: 800px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* hero section */
+        .hero {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            grid-gap: 15px;
+        }
+
+        @media (max-width: 700px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .hero h2 {
+            margin-top: 0;
+            font-size: 26px;
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: #444;
+        }
+
+        .hero a.more {
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #a30000;
+        }
+
+        /* columns / cards */
+        .section-title {
+            font-size: 18px;
+            margin: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-gap: 10px;
+            margin-bottom: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 90px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .card a {
+            font-size: 12px;
+            text-decoration: none;
+            color: #a30000;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 11px;
+            color: #888;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Cliff Li’s Website</h1>
-    <p>This is your main homepage hosted on GitHub Pages.</p>
+<div class="page">
+    <header>
+        <h1>Cliff Li</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="media.html">Media Director Project</a>
+            <a href="research.html">Research</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="cv.html">CV</a>
+        </nav>
+    </header>
 
-    <p><a href="media.html">Media Director Project Page</a></p>
+    <!-- top layout -->
+    <div class="layout">
+
+        <!-- LEFT: hero + research/teaching -->
+        <div>
+            <!-- hero story -->
+            <section class="hero">
+                <div class="hero-inner">
+                    <!-- big image -->
+                    <img src="images/pikes_peak.jpg" alt="Pikes Peak">
+
+                    <!-- text -->
+                    <div>
+                        <h2>Life and Finance at the Foot of Pikes Peak</h2>
+                        <p>
+                            I am an Assistant Professor of Finance at UCCS. My work connects corporate governance,
+                            whistleblowing, and debt contracting with real decisions that shape firms and people.
+                        </p>
+                        <a class="more" href="research.html">View research portfolio →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- research section -->
+            <section>
+                <h2 class="section-title">Research Highlights</h2>
+
+                <div class="card">
+                    <img src="images/media_project.jpg" alt="Media directors">
+                    <div>
+                        <h3>Media Directors & Audit Fees</h3>
+                        <p>How media-linked directors change auditor perceptions of risk, governance, and pricing.</p>
+                        <a href="media.html">Read project →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/whistleblowing.jpg" alt="Whistleblowing">
+                    <div>
+                        <h3>Whistleblowing & the Cost of Debt</h3>
+                        <p>Entropy-balanced OSHA cases to study how employee voice affects bank loan spreads.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/governance.jpg" alt="Governance">
+                    <div>
+                        <h3>Corporate Governance PCA</h3>
+                        <p>Using PCA-based governance indices to uncover non-linear effects on firm outcomes.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- RIGHT: teaching / opinion style column -->
+        <aside>
+            <section>
+                <h2 class="section-title">Teaching & Students</h2>
+
+                <div class="card">
+                    <img src="images/classroom.jpg" alt="Classroom">
+                    <div>
+                        <h3>Equity Valuation (FNCE 4350)</h3>
+                        <p>Excel-based fundamental valuation, case work, and live market data.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/cfa_team.jpg" alt="CFA team">
+                    <div>
+                        <h3>CFA Research Challenge</h3>
+                        <p>Mentoring student teams in equity research, modeling, and presentation.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/mountains.jpg" alt="Colorado">
+                    <div>
+                        <h3>Colorado & Life</h3>
+                        <p>Road trips, photography, and balancing research, teaching, and family.</p>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <footer>
+        © <span id="year"></span> Cliff Li · Hosted on GitHub Pages
+    </footer>
+</div>
+
+<script>
+    // auto year
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
